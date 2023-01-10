@@ -16,7 +16,7 @@ export const ZNavbar = () => {
         console.log(location);
     }, [location]);
     return (
-        <div className='capitalize mb-10'>
+        <div className='capitalize mb-10 '>
             <Search shownState={searchModal} closeModal={closeIt} />
             <Navbar
                 fluid={true}
@@ -28,7 +28,7 @@ export const ZNavbar = () => {
                         className="mr-3 h-6 sm:h-9"
                         alt="Flowbite Logo"
                     />
-                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white mr-2">
                         VODU
                     </span>
                 </Navbar.Brand>
@@ -36,7 +36,7 @@ export const ZNavbar = () => {
                     <Button gradientMonochrome={'info'}
                     onClick={()=>setSearchModal(!searchModal)}
                     >
-                        Search <i className="pl-5  fa-solid fa-magnifying-glass"></i>
+                        <span className="hidden lg:block">Search</span> <i className="lg:pl-5  fa-solid fa-magnifying-glass"></i>
 
                     </Button>
                     <div className="ml-5">

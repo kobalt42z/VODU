@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 export const Search = (props) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-    
+
     const doSearch = (data) => {
         console.log(data.search);
         props.closeModal()
@@ -16,29 +16,30 @@ export const Search = (props) => {
     return (
         <>
             <Modal
-                show={props.shownState}
-                onClose={props.closeModal}
-                popup={true}
+            position={'center'}
+            show={props.shownState}
+            onClose={props.closeModal}
+            popup={true}
             >
-                <Modal.Header>
-                    <span className="capitalize">search movie :</span>
-                </Modal.Header>
-                <div className='px-5 pb-3'>
-                    <div className="mb-2 block">
-
-                    </div>
-                    <form onSubmit={handleSubmit(doSearch)}>
-                        <TextInput
-                            id="base"
-                            type="text"
-                            sizing="md"
-                            icon={MagnifyingGlassIcon}
-                            {...register("search", { required: true })}
-                        />
-                    </form>
+            <Modal.Header>
+                <span className="capitalize">search movie :</span>
+            </Modal.Header>
+            <div className='px-5 pb-3'>
+                <div className="mb-2 block">
 
                 </div>
-            </Modal>
+                <form onSubmit={handleSubmit(doSearch)}>
+                    <TextInput
+                        id="base"
+                        type="text"
+                        sizing="md"
+                        icon={MagnifyingGlassIcon}
+                        {...register("search", { required: true })}
+                    />
+                </form>
+
+            </div>
+        </Modal>
         </>
 
     )
