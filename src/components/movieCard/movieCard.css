@@ -6,4 +6,8 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
 
     transition-duration:1s ;
+   
+}
+.bgbg{
+    background-size:cover ;
 }
