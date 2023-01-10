@@ -37,7 +37,7 @@ export const CarouScroll = () => {
 
     const handleWheel = (event) => {
         carouselRef.current.scrollLeft += event.deltaY;
-        console.log(event);
+        
     };
 
     const carouselRef = useRef()
@@ -47,32 +47,32 @@ export const CarouScroll = () => {
     }, []);
     // ! scrollbar-hide is a custom class in home.css
     return (
-        <div className="container ">
+        <div className="container h-[25vh] sm:h-[30vh] md:h-[38vh] lg:h-[45vh] xl:h-[55vh]">
             <h2 className="capitalize font-bold lg:my-3 ">most popular</h2>
             <div className="flex items-center h-[200px] justify-around lg:mt-[10vh] ">
                 <button onClick={() => scrollPrev()} className='hidden md:block'  ><ChevronLeftIcon className="h-12 mr-5 text-gray-500" /></button>
 
-                <div ref={carouselRef} onWheel={handleWheel} className="overflow-x-scroll scrollbar-hide touch-pan-x  snap-x flex ">
+                <div ref={carouselRef} onWheel={handleWheel} className="overflow-x-scroll scrollbar-hide  snap-x flex ">
 
                     <div className=" grid grid-row-1 grid-flow-col gap-2 md:gap-2 mt-10">
-                        <MovieCard imgUrl={'https://m.media-amazon.com/images/M/MV5BMmE2NzEyOWItYjI1ZC00YWZhLWI2MjEtZmU1NjIyNjliOTkyXkEyXkFqcGdeQXVyMTYzMDM0NTU@._V1_SX300.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://m.media-amazon.com/images/M/MV5BNWIwMGYzOGYtMDY2Yy00NDk5LWI5MTItMDI2YzExMzI4ZDQ0XkEyXkFqcGdeQXVyNTE0MDY4Mjk@._V1_SX300.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard imgUrl={'https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://m.media-amazon.com/images/M/MV5BMmE2NzEyOWItYjI1ZC00YWZhLWI2MjEtZmU1NjIyNjliOTkyXkEyXkFqcGdeQXVyMTYzMDM0NTU@._V1_SX300.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://m.media-amazon.com/images/M/MV5BNWIwMGYzOGYtMDY2Yy00NDk5LWI5MTItMDI2YzExMzI4ZDQ0XkEyXkFqcGdeQXVyNTE0MDY4Mjk@._V1_SX300.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png'} title="hello world" alt="hello world" />
 
                     </div>
                 </div>

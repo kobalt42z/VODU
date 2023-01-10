@@ -10,7 +10,9 @@ function App() {
 
   return (
     <>
-      <Browser/>
+      <div className='dark:bg-slate-700'>
+        <Browser />
+      </div>
     </>
   )
 }
