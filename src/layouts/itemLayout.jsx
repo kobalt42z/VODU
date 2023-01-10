@@ -31,8 +31,8 @@ export const ItemLayout = (props) => {
             </div>
             <div className="rightcol w-[100%] md:w-[60%] p-10">
                 <div className="title capitalize space-y-1">
-                    <h1 className='text-2xl py-2'>title lorem</h1>
-                    <p className=''><span className='font-bold '>directed by:</span> <span className='text-sky-600'> Lorem, ipsum.</span></p>
+                    <h1 className='text-2xl py-2'>{props.title}</h1>
+                    <p className=''><span className='font-bold '>directed by:</span> <span className='text-sky-600'> {props.directedBy}</span></p>
                 </div>
                 <div className="gener pb-5">
                     <p className=''>
