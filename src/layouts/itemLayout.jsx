@@ -3,6 +3,10 @@ import React, { useState } from 'react'
 
 export const ItemLayout = (props) => {
     const [stars, setStars] = useState(3);
+    const [imdb, setImbd] = useState(3);
+    const [rotten, setRotten] = useState(3);
+    const [metacritic, setMetacritic] = useState(3);
+
     return (<>
         {/* fetch content from props.itemUrl  */}
         <div className='container md:flex  justify-center dark:text-white'>
@@ -11,18 +15,17 @@ export const ItemLayout = (props) => {
                     <img className='lg:w-[70%]' src="https://image.tmdb.org/t/p/w500/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg" alt="poster" />
                 </div>
                 <div className="tbtns flex justify-end w-[100%] pt-2">
-                    <button className="w-[50%] lg:w-[35%] h-[5vh] hover:bg-slate-200 border font-semibold">Watch Trailer</button>
-                    <button className="w-[50%] lg:w-[35%] h-[5vh] hover:bg-slate-200 border font-semibold">Watch Trailer</button>
+                    <button className="w-[50%] lg:w-[35%] h-[5vh] hover:bg-slate-200 border font-semibold"> <i class="fa-brands fa-google-play"></i> Watch</button>
+                    <button className="w-[50%] lg:w-[35%] h-[5vh] hover:bg-slate-200 border font-semibold"><i class="fa-brands fa-amazon"></i> Watch</button>
                 </div>
                 <div className="flex justify-end">
                     <div className="sinfo w-[100%] lg:w-[70%] drop-shadow border mt-5 h-[20vh] flex justify- items-center">
 
                         <div className='p-5  space-y-2'>
-                            <p><span className='font-bold pr-5 '>Release Date:</span> 2021-09-29</p>
-                            <p><span className='font-bold pr-5'>Release Date:</span> 2021-09-29</p>
-                            <p><span className='font-bold pr-5 '>Release Date:</span> 2021-09-29</p>
-                            <p><span className='font-bold pr-5 '>Release Date:</span> 2021-09-29</p>
-
+                            <p><span className='font-bold pr-5 '>Contry: </span>{props.country}</p>
+                            <p><span className='font-bold pr-5'>Langage: </span> {props.language}</p>
+                            <p><span className='font-bold pr-5 '>Rated: </span>{props.rated}</p>
+                            <p><span className='font-bold pr-5 '>Awards:</span> {props.award}</p>
                         </div>
 
                     </div>
@@ -36,30 +39,31 @@ export const ItemLayout = (props) => {
                 </div>
                 <div className="gener pb-5">
                     <p className=''>
-                        <span className='font-bold '> lorem:</span> ipsum | <span className='font-bold'> lorem:</span> ipsum | <span className='font-bold'> lorem:</span> ipsum | <span className='font-bold'> lorem:</span> ipsum |
-                        <span className='font-bold'> lorem</span> ipsum
+                        <span className='font-bold '> Gener:</span> {props.gener} | <span className='font-bold'> Runtime:</span> {props.runtime} | <span className='font-bold'> contry:</span> {props.country} | <span className='font-bold'> Langage:</span> {props.langage} |
+                        <span className='font-bold'> PEGI:</span> {props.rated}
                     </p>
                 </div>
                 <div className="rating  max-lg:flex-col lg:flex  w-[100%]" >
-                    <div className='flex items-center justify-center lg:flex-col xl:flex-row lg:w-[33.3%] px-2 border px- py-4 '> <h3 className='font-semibold'>Lorem, ipsum :</h3>
+                    <div className='flex items-center justify-center lg:flex-col xl:flex-row lg:w-[33.3%] px-2 border px- py-4 '> <h3 className='font-semibold'>IMBD rating :</h3>
                         <Rating size="sm">
-                            {stars >= 1 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {stars >= 2 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {stars >= 3 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {stars >= 4 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {stars >= 5 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {imdb >= 2 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {imdb >= 4 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {imdb >= 6 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {imdb >= 8 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {imdb >= 10 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
                         </Rating>
                     </div>
-                    <div className='flex items-center justify-center lg:flex-col xl:flex-row lg:w-[33.3%] px-2 border px- py-4 '> <h3 className='font-semibold'>Lorem, ipsum :</h3>
+                    <div className='flex items-center justify-center lg:flex-col xl:flex-row lg:w-[33.3%] px-2 border px- py-4 '> <h3 className='font-semibold'>Rotten, tomatoes :</h3>
+                    {/* from string to int without % */}
                         <Rating size="sm">
-                            {stars >= 1 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {stars >= 2 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {stars >= 3 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {stars >= 4 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {stars >= 5 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {rotten >= 20 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {rotten >= 2 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {rotten >= 3 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {rotten >= 4 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {rotten >= 5 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
                         </Rating>
                     </div>
-                    <div className='flex items-center justify-center lg:flex-col xl:flex-row lg:w-[33.3%] px-2 border px- py-4 '> <h3 className='font-semibold'>Lorem, ipsum :</h3>
+                    <div className='flex items-center justify-center lg:flex-col xl:flex-row lg:w-[33.3%] px-2 border px- py-4 '> <h3 className='font-semibold'>Metacritic:</h3>
                         <Rating size="sm">
                             {stars >= 1 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
                             {stars >= 2 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
