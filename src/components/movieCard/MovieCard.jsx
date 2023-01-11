@@ -3,22 +3,24 @@ import './movieCard.css'
 export const MovieCard = (props) => {
     // const { imgUrl, title, alt } = props
     // const imgg = `${imgUrl}` 
+
+
     useEffect(() => {
         console.log(props.imgUrl)
     }, [])
     return (
-        <div style={{background: `url(${props.imgUrl})`,backgroundSize:'cover', backgroundPosition:'center'}} className={`  center rounded-md 
+        <div style={{background: `url(${props.imgUrl})`,backgroundSize:'cover' , backgroundPosition:'center' ,backgroundRepeat:'no-repeat'}} className={`  center rounded-md 
         drop-shadow-lg
-        w-[12vh] h-[18vh]
-        md:w-[16vh] md:h-[22vh] 
-        lg:w-[22vh] lg:h-[32vh] 
-        xl:w-[25vh] xl:h-[36vh] 
+        h-[12vh] w-[18vh]
+        md:h-[16vh] md:w-[22vh] 
+        lg:h-[22vh] lg:w-[32vh] 
+        xl:h-[25vh] xl:w-[36vh] 
 
         ${props.grow?`
         
-        md:hover:h-[24vh] md:hover:w-[18vh]
-        lg:hover:h-[34vh] lg:hover:w-[24vh]
-        xl:hover:h-[39vh] xl:hover:w-[27vh]
+        md:hover:w-[24vh] md:hover:h-[18vh]
+        lg:hover:w-[34vh] lg:hover:h-[24vh]
+        xl:hover:w-[39vh] xl:hover:h-[27vh]
         `
         :
         ''

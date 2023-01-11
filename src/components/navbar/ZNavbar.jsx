@@ -16,7 +16,7 @@ export const ZNavbar = () => {
         console.log(location);
     }, [location]);
     return (
-        <div className='capitalize mb-10 '>
+        <div className='capitalize  '>
             <Search shownState={searchModal} closeModal={closeIt} />
             <Navbar
                 fluid={true}

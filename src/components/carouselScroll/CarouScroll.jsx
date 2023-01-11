@@ -55,8 +55,8 @@ export const CarouScroll = () => {
                 <div ref={carouselRef} onWheel={handleWheel} className="overflow-x-scroll scrollbar-hide  snap-x flex ">
 
                     <div className=" grid grid-row-1 grid-flow-col gap-2 md:gap-2 mt-10">
-                        <MovieCard grow imgUrl={'https://m.media-amazon.com/images/M/MV5BMmE2NzEyOWItYjI1ZC00YWZhLWI2MjEtZmU1NjIyNjliOTkyXkEyXkFqcGdeQXVyMTYzMDM0NTU@._V1_SX300.jpg'} title="hello world" alt="hello world" />
-                        <MovieCard grow imgUrl={'https://m.media-amazon.com/images/M/MV5BNWIwMGYzOGYtMDY2Yy00NDk5LWI5MTItMDI2YzExMzI4ZDQ0XkEyXkFqcGdeQXVyNTE0MDY4Mjk@._V1_SX300.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://image.tmdb.org/t/p/w400/xDMIl84Qo5Tsu62c9DGWhmPI67A.jpg'} title="hello world" alt="hello world" />
+                        <MovieCard grow imgUrl={'https://image.tmdb.org/t/p/w400/qdFrqXYH6PtyAVlegub7bpoSgro.jpg'} title="hello world" alt="hello world" />
                         <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
                         <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
                         <MovieCard grow imgUrl={'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg'} title="hello world" alt="hello world" />
