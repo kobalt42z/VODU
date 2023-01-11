@@ -14,13 +14,13 @@ export const MovieCard = (props) => {
         h-[12vh] w-[18vh]
         md:h-[16vh] md:w-[22vh] 
         lg:h-[22vh] lg:w-[32vh] 
-        xl:h-[25vh] xl:w-[36vh] 
+        xl:h-[26vh] xl:w-[38vh] 
 
         ${props.grow?`
         
         md:hover:w-[24vh] md:hover:h-[18vh]
         lg:hover:w-[34vh] lg:hover:h-[24vh]
-        xl:hover:w-[39vh] xl:hover:h-[27vh]
+        xl:hover:w-[40vh] xl:hover:h-[28vh]
         `
         :
         ''
