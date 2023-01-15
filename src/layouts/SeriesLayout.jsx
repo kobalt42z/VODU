@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { API_KEY, BASE_URL, IMG_BASE_URL, LANGUAGE, POSTER_BASE_URL, TV_URL } from '../constant/constant'
 
 /*
-* refactor the serie layout 
+* refactor the serie layout and //! fix the responsive!!!
 * add a button to navigate to the season & episodes page 
 *      the navigate shuld pass a state withe seasons [] otherwise the page
 *      will go back to the series page (this)
