@@ -1,36 +1,34 @@
 import { Button, Rating, Tabs } from 'flowbite-react'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { API_KEY, BASE_URL, LANGUAGE, TV_URL } from '../constant/constant'
 
 export const SeriesLayout = (props) => {
-    const {poster_path,name,original_name,genres,seasons} = props
+    const { poster_path, name, original_name, genres, seasons, vote_average,vote_count } = props
     // ! geners[] {id,name} 
     // ! seasons[] {air_date,episode_count,name,overview,poster_path,season_number}
 
-    const [stars, setStars] = useState(6);
-    const [imdb, setImbd] = useState(6);
-    const [rotten, setRotten] = useState(42);
-    const [metacritic, setMetacritic] = useState(32);
+    const bringTvInfo = async (id) =>{
+        const resp =  await axios.get(TV_URL+id+API_KEY+LANGUAGE)
+        console.log(resp.data)
+        
+    }
+    
+    const [stars, setImbd] = useState(6);
 
     
 
-    const setRating = (rating) => {
-        if (rating) {
-            const _imdb = parseInt(rating[0].Value)
-            const _rotten = parseInt(rating[1].Value)
-            const _metacritic = parseInt(rating[2].Value)
-            setImbd(_imdb)
-            setRotten(_rotten)
-            setMetacritic(_metacritic)
-        }
-        else console.log('no rating');
-    }
+
+
 
     return (<>
         {/* fetch content from props.itemUrl  */}
         <div className='container md:flex  justify-center dark:text-white'>
             <div className="leftcol md:w-[40%]   ">
                 <div className="poster flex justify-end">
+                    <Link to={'/anime'}>
                     <img className='lg:w-[70%]' src="https://image.tmdb.org/t/p/w500/AZy82ouYJFZ5ZY86TKH13AlSVb.jpg" alt="poster" />
+                    </Link>
                 </div>
                 <div className="tbtns flex justify-end w-[100%] pt-2">
                     <button className="w-[50%] lg:w-[35%] h-[5vh] hover:bg-slate-200 border font-semibold"> <i class="fa-brands fa-google-play"></i> Watch</button>
@@ -61,35 +59,20 @@ export const SeriesLayout = (props) => {
                         <span className='font-bold'>Release Date:</span> {props.Released}
                     </p>
                 </div>
-                <div className="rating  max-lg:flex-col lg:flex  w-[100%]" >
-                    <div className='flex items-center justify-center lg:flex-col xl:flex-row lg:w-[33.3%] px-2 border px- py-4 '> <h3 className='font-semibold'>IMBD rating :</h3>
+                <div className="rating  flex w-[100%] mb-5" >
+
+                    <div className='flex items-center justify-center   space-x-4   '> <h3 className='font-semibold text-xl'>stars: </h3>
                         <Rating size="sm">
-                            {imdb >= 2 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {imdb >= 4 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {imdb >= 6 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {imdb >= 8 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {imdb >= 10 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {stars >= 2 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {stars >= 4 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {stars >= 6 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {stars >= 8 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
+                            {stars >= 10 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
                         </Rating>
+                        <span className="ml-5">{vote_average}| {vote_count}</span>
                     </div>
-                    <div className='flex items-center justify-center lg:flex-col xl:flex-row lg:w-[33.3%] px-2 border px- py-4 '> <h3 className='font-semibold'>Rtomatoes :</h3>
-                        {/* from string to int without % */}
-                        <Rating size="sm">
-                            {rotten >= 20 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {rotten >= 40 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {rotten >= 60 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {rotten >= 80 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {rotten >= 100 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                        </Rating>
-                    </div>
-                    <div className='flex items-center justify-center lg:flex-col xl:flex-row lg:w-[33.3%] px-2 border px- py-4 '> <h3 className='font-semibold'>Metacritic:</h3>
-                        <Rating size="sm">
-                            {metacritic >= 20 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {metacritic >= 40 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {metacritic >= 60 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {metacritic >= 80 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                            {metacritic >= 100 ? <Rating.Star filled={true} /> : <Rating.Star filled={false} />}
-                        </Rating>
-                    </div>
+
+
 
 
 

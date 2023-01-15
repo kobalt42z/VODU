@@ -12,7 +12,7 @@ export const EpisodeLayouts = (props) => {
     // ? destruct vote_average to stars :)
 
     const [stars, setStars] = useState(6);
-   
+
     useEffect(() => {
         setStars(vote_average)
     }, [props])
@@ -51,7 +51,7 @@ export const EpisodeLayouts = (props) => {
 
             <div className="topCol md:w-[100%] md:flex  justify-center py-4">
                 <div className="poster flex ">
-                    <img className='md:w-[95%]' src={POSTER_BASE_URL+still_path} alt="poster" />
+                    <img className='md:w-[95%]' src={POSTER_BASE_URL + still_path} alt="poster" />
 
                 </div>
 
@@ -81,60 +81,12 @@ export const EpisodeLayouts = (props) => {
                             <span className="ml-5">{vote_average}| {vote_count}</span>
                         </div>
                     </div>
-                    
+
                 </div>
 
             </div>
             <div className="dwoncol w-[100%] md:w-[100%] pt-10 flex justify-center">
 
-                {/* <div className="theoutlet border ">
-                    <Tabs.Group
-                        aria-label="Tabs with underline"
-                        style="underline"
-                    >
-                        <Tabs.Item title="Overview">
-                            <div className="synopsis w-[100%] border p-5  md:p-10 drop-shadow-md space-y-1">
-                                <h1 className='font-semibold text-2xl '>Plot </h1>
-                                <hr />
-                                <p>{props.Plot}</p>
-                            </div>
-                        </Tabs.Item>
-                        <Tabs.Item
-                            active={true}
-                            title="Review"
-                        >
-                            <div className="synopsis w-[100%] border p-5  md:p-10 drop-shadow-md space-y-1">
-                                <h1 className='font-semibold text-2xl'>Lolipop </h1>
-                                <hr />
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore rerum a ratione beatae perspiciatis at, molestiae quaerat ipsum assumenda ipsa nobis suscipit totam et dolorum atque magni aliquam voluptate quam explicabo repellat. Ea mollitia maiores animi enim cumque aut totam repellat similique, error minus deleniti assumenda, dignissimos in labore a . Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae reprehenderit vitae suscipit at cum sit neque eius similique, veritatis rerum.</p>
-                            </div>
-                        </Tabs.Item>
-                        <Tabs.Item title="User Reviews">
-                            <div className="synopsis w-[100%] border p-5  md:p-10 drop-shadow-md space-y-1">
-                                <h1 className='font-semibold text-2xl'>Macadonia </h1>
-                                <hr />
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore rerum a ratione beatae perspiciatis at, molestiae quaerat ipsum assumenda ipsa nobis suscipit totam et dolorum atque magni aliquam voluptate quam explicabo repellat. Ea mollitia maiores animi enim cumque aut totam repellat similique, error minus deleniti assumenda, dignissimos in labore a . Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae reprehenderit vitae suscipit at cum sit neque eius similique, veritatis rerum.</p>
-                            </div>
-                        </Tabs.Item>
-                        <Tabs.Item title="Cast & crew">
-                            <div className="synopsis w-[100%] border p-5  md:p-10 drop-shadow-md space-y-1">
-                                <h1 className='font-semibold text-2xl'>Synopsis </h1>
-                                <hr />
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore rerum a ratione beatae perspiciatis at, molestiae quaerat ipsum assumenda ipsa nobis suscipit totam et dolorum atque magni aliquam voluptate quam explicabo repellat. Ea mollitia maiores animi enim cumque aut totam repellat similique, error minus deleniti assumenda, dignissimos in labore a . Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae reprehenderit vitae suscipit at cum sit neque eius similique, veritatis rerum.</p>
-                            </div>
-                        </Tabs.Item>
-                        <Tabs.Item
-                            disabled={false}
-                            title="Realeases"
-                        >
-                            <div className="synopsis w-[100%] border p-5  md:p-10 drop-shadow-md space-y-1">
-                                <h1 className='font-semibold text-2xl'>Synopsis </h1>
-                                <hr />
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore rerum a ratione beatae perspiciatis at, molestiae quaerat ipsum assumenda ipsa nobis suscipit totam et dolorum atque magni aliquam voluptate quam explicabo repellat. Ea mollitia maiores animi enim cumque aut totam repellat similique, error minus deleniti assumenda, dignissimos in labore a . Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae reprehenderit vitae suscipit at cum sit neque eius similique, veritatis rerum.</p>
-                            </div>
-                        </Tabs.Item>
-                    </Tabs.Group>
-                </div> */}
                 <div className="synopsis w-[100%]  md:w-[95%] lg:w-[70%] xl:w-[60%] border p-5  md:p-10 drop-shadow-md space-y-1">
                     <h1 className='font-semibold text-2xl'>Overview : </h1>
                     <hr />

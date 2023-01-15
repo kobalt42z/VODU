@@ -1,34 +1,18 @@
 import axios from 'axios'
 import { Button, Dropdown, Rating, Tabs } from 'flowbite-react'
 import React, { useState } from 'react'
+import { useLocation, useParams } from 'react-router-dom'
 import { MainGrid } from '../components/MainGrid/MainGrid'
 import { API_KEY, BASE_URL, LANGUAGE, SEASON, TV_URL } from '../constant/constant'
 
-export const SeasonLayout = (props) => {
+export const SeasonLayout = () => {
     // const { seasons,serie_id } = props
     const [episodes, setEpisodes] = useState([])
-    // for testing :
-    const serie_id = 119051
-    const seasons = [
-        {
-            air_date: "2022-11-23",
-            episode_count: 8,
-            id: 182137,
-            name: "Season 1",
-            overview: "",
-            poster_path: "/ajACh2JtjPOS2jJFhuD30gI1o8a.jpg",
-            season_number: 1
-        },
-        {
-            air_date: null,
-            episode_count: 0,
-            id: 323145,
-            name: "Season 2",
-            overview: "",
-            poster_path: null,
-            season_number: 2
-        }
-    ]
+    const location = useLocation()
+    // ! destruct states from location.state
+    
+    
+    
     const bringEpisodes = async (_season_number) => {
         try {
             // tofix
