@@ -68,7 +68,7 @@ export const ZNavbar = () => {
                     <Navbar.Link
                      active={location.pathname === '/series'}>
                     <Link to={
-                            '/series'
+                            '/tv'
                         }>
                         series
                         </Link>

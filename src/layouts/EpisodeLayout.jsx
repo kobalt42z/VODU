@@ -1,21 +1,48 @@
 import { HomeIcon } from '@heroicons/react/24/outline';
+import axios from 'axios';
 import { Breadcrumb, Button, Rating, Tabs } from 'flowbite-react'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
-import { POSTER_BASE_URL } from '../constant/constant';
+import { Link, useParams } from 'react-router-dom';
+import { API_KEY, EPISODE, LANGUAGE, POSTER_BASE_URL, SEASON, TV_URL } from '../constant/constant';
 
 // * data from season/num/episode/num -> props
 
 export const EpisodeLayouts = (props) => {
-    const { still_path, name, overview, runtime, vote_average, vote_count, episode_number, season_number, air_date } = props
+    
+
+
+   
 
     // ? destruct vote_average to stars :)
 
     const [stars, setStars] = useState(6);
+    const [episode, setEpisode] = useState({})
+
+    const { still_path, name, overview, runtime, vote_average, vote_count, episode_number, air_date } = episode ||{}
+
+    const params = useParams()
+    const ep_id = params.episode_id
+    const tv_id = params.tv_id 
+    const se_id = params.season_id
+    
+
+
+    const bringEpisode = async (id) => {
+        try {
+            const resp = await axios.get(TV_URL + tv_id + SEASON + se_id + EPISODE + id + API_KEY + LANGUAGE)
+            if (resp.data) {
+                setEpisode(resp.data)
+            } else console.log('no episodes');
+            console.log(resp)
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     useEffect(() => {
+        bringEpisode(ep_id)
         setStars(vote_average)
-    }, [props])
+    }, [])
 
 
 
@@ -32,30 +59,30 @@ export const EpisodeLayouts = (props) => {
                         <Link to={'/home'} >Home</Link>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item >
-                        <Link to={'/series'} >Series</Link>
+                        <Link to={'/tv'} >Tv</Link>
 
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        <Link to={'/anime'} > Wandsday</Link>
+                        <Link to={`/tv/${tv_id}}`} > nameOfSeries </Link>
 
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        <Link to={'/cartoon'} >Season {season_number}</Link>
+                        <Link to={`/tv/${tv_id}}/seasons/`} >Season {se_id}</Link>
 
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        <Link to={'/cartoon'} >Episode {episode_number}</Link>
+                        <Link to={`/tv/${tv_id}}/seasons/${se_id}/episode/${ep_id}/`} >Episode {episode_number}</Link>
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
 
-            <div className="topCol md:w-[100%] md:flex  justify-center py-4">
+            <div className="topCol md:w-[100%] md:flex  justify-center py-4 ">
                 <div className="poster flex ">
-                    <img className='md:w-[95%]' src={POSTER_BASE_URL + still_path} alt="poster" />
+                    <img className='md:w-[500px]' src={still_path?POSTER_BASE_URL + still_path: 'https://htgindustry.com/wp-content/uploads/improve-video-play-rate.png'} alt="poster" />
 
                 </div>
 
-                <div className="desc">
+                <div className="desc md:p-10">
 
                     <div className="title capitalize space-y-1">
                         <h1 className='text-2xl py-2 font-semibold '>{name}</h1>
@@ -63,7 +90,7 @@ export const EpisodeLayouts = (props) => {
                     </div>
                     <div className="gener pb-5">
                         <p className=''>
-                            <span className='font-bold'> Season:</span> {season_number} |
+                            <span className='font-bold'> Season:</span> {se_id} |
                             <span className='font-bold '> Episod: </span> {episode_number} | <span className='font-bold'> Runtime:</span> {runtime}min |  <span className='font-bold'> Langage:</span> English |
                             <span className='font-bold'>Release Date:</span> {air_date}
                         </p>

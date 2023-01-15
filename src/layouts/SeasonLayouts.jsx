@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Button, Dropdown, Rating, Tabs } from 'flowbite-react'
 import React, { useEffect, useState } from 'react'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { MainGrid } from '../components/MainGrid/MainGrid'
 import { API_KEY, BASE_URL, LANGUAGE, SEASON, TV_URL } from '../constant/constant'
 
@@ -10,15 +10,35 @@ export const SeasonLayout = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const [episodes, setEpisodes] = useState([])
-    const { seasons } = location.state || []
+    const [seasons, setSeasons] = useState([])
+    const [selectedSeason, setSelectedSeason] = useState(1)
+    const params = useParams()
+    const tv_id = params.tv_id
+    
+    const bringTvInfo = async (id) => {
+        try{
 
+            const resp = await axios.get(TV_URL + id + API_KEY + LANGUAGE)
+            
+            if (resp.data.seasons) {
+                console.log(resp.data.seasons);
+                setSeasons(resp.data.seasons)
+            }else console.log('no data');
+                
+            
+        }catch(err){
+            console.log(err)
+            console.log(params);
+        }
+       
+        
 
-
+    }
 
     const bringEpisodes = async (_season_number) => {
         try {
             // tofix
-            const stringo = TV_URL + serie_id + SEASON + _season_number + API_KEY + LANGUAGE
+            const stringo = TV_URL + tv_id + SEASON + _season_number + API_KEY + LANGUAGE
             console.log(stringo);
             const resp = await axios.get(stringo)
             if (resp.data.episodes) {
@@ -34,9 +54,12 @@ export const SeasonLayout = () => {
 
     useEffect(() => {
       
-        if (!seasons) {
-            console.log('missing seasons');
-            navigate('/series')
+        console.log(location);
+       
+        if (!location.state._seasons) {
+            bringTvInfo(tv_id)
+        }else{
+            setSeasons(location.state._seasons)
         }
 
 
@@ -57,7 +80,11 @@ export const SeasonLayout = () => {
             {seasons &&
                 seasons.map((item, index) => {
                     return (
-                        <Dropdown.Item key={index} onClick={() => bringEpisodes(item.season_number)}>
+                        <Dropdown.Item key={index} onClick={() => {
+                            bringEpisodes(item.season_number)
+                            selectedSeason(item.season_number)
+                        }
+                        }>
 
                             {item.name}
 
@@ -68,7 +95,7 @@ export const SeasonLayout = () => {
 
 
         </Dropdown>
-        {episodes[1] ? <MainGrid episodes={episodes} /> :
+        {episodes[1] ? <MainGrid episodes={episodes} season={selectedSeason} />  :
 
             <div>there is no episode yet</div>
         }

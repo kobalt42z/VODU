@@ -4,9 +4,9 @@
 */
 export const API_KEY  = '?api_key=2b4c58716a8ad12c213cec5e081389ee'
 
-export const BACK_DROP_BASE_URL = 'https://image.tmdb.org/t/p/w400'
+export const BACK_DROP_BASE_URL = 'https://image.tmdb.org/t/p/original'
 export const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w400'
-export const POSTER_BASE_URL = 'https://image.tmdb.org/t/p/w500/'
+export const POSTER_BASE_URL = 'https://image.tmdb.org/t/p/w500'
 export const BASE_URL = 'https://api.themoviedb.org/3/'
 export const TV_URL = 'https://api.themoviedb.org/3/tv/'
 export const MOVIE_URL = 'https://api.themoviedb.org/3/movie/'
