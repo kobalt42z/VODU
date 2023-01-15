@@ -1,18 +1,20 @@
 import axios from 'axios'
 import { Button, Dropdown, Rating, Tabs } from 'flowbite-react'
-import React, { useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { MainGrid } from '../components/MainGrid/MainGrid'
 import { API_KEY, BASE_URL, LANGUAGE, SEASON, TV_URL } from '../constant/constant'
 
 export const SeasonLayout = () => {
     // const { seasons,serie_id } = props
-    const [episodes, setEpisodes] = useState([])
     const location = useLocation()
-    // ! destruct states from location.state
-    
-    
-    
+    const navigate = useNavigate()
+    const [episodes, setEpisodes] = useState([])
+    const { seasons } = location.state || []
+
+
+
+
     const bringEpisodes = async (_season_number) => {
         try {
             // tofix
@@ -29,6 +31,18 @@ export const SeasonLayout = () => {
             console.log(err)
         }
     }
+
+    useEffect(() => {
+      
+        if (!seasons) {
+            console.log('missing seasons');
+            navigate('/series')
+        }
+
+
+
+    }, [])
+
     // seasons[] is an array of objects
 
     // const { poster_path, name, original_name, genres, episodes, sesons } = data
@@ -55,7 +69,7 @@ export const SeasonLayout = () => {
 
         </Dropdown>
         {episodes[1] ? <MainGrid episodes={episodes} /> :
-            
+
             <div>there is no episode yet</div>
         }
     </div>)
