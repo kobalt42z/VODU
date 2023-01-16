@@ -1,11 +1,12 @@
 import React from 'react'
 import { BrowserRouter, Navigate, Outlet, Route, Routes, useNavigate } from 'react-router-dom'
 import { EpisodeLayouts } from '../layouts/EpisodeLayout'
-import { MoovieLayout } from '../layouts/MoovieLayout'
+import { MovieLayout } from '../layouts/MovieLayout'
 import { SeasonLayout } from '../layouts/SeasonLayouts'
 import { SeriesLayout } from '../layouts/SeriesLayout'
 import { SharedLayouts } from '../layouts/SharedLayouts'
 import { Movies } from '../pages/Movies'
+import { Tvs } from '../pages/tvs'
 
 export const Browser = () => {
 
@@ -14,9 +15,13 @@ export const Browser = () => {
             <Routes>
 
                 <Route path="/" element={<SharedLayouts />}>
-                    <Route index element={<Navigate to={'/home'} />} />
+                    <Route index element={<Navigate to={'/movies'} />} />
                     <Route path='/movies' element={<Movies />} />
-                    <Route path='/moovies' element={<MoovieLayout />} />
+                    <Route path='/tvs' element={<Tvs/>} />
+
+                    <Route path='/movie/:movie_Id' element={<Outlet/>}>
+                        <Route index element={<MovieLayout />} />
+                    </Route>
 
 
                     <Route path='/tv/:tv_id' element={<Outlet />}>

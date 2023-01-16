@@ -2,18 +2,21 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import axios from 'axios'
 import { Card } from 'flowbite-react'
 import React, { useEffect, useRef, useState } from 'react'
-import { API_KEY, BASE_URL, DISCOVER_MOVIE_URL, LANGUAGE, PAGE, POSTER_BASE_URL } from '../../constant/constant'
+import { API_KEY, BASE_URL, DISCOVER_MOVIE_URL, DISCOVER_TV_URL, LANGUAGE, PAGE, POSTER_BASE_URL } from '../../constant/constant'
 import { ItemCard } from '../movieCard/itemCard'
 import { MovieCard } from '../movieCard/MovieCard'
 
 import './CarouScroll.css'
-export const CarouScroll = () => {
+export const CarouScroll = (props) => {
     const [currentScrollPosition, setCurrentScrollPosition] = useState(0);
     const [data, setData] = useState([]);
-
-    const discoverMovies = async () => {
+    const MV_URL = BASE_URL + DISCOVER_MOVIE_URL + API_KEY + LANGUAGE + PAGE + '2'
+    const TV_URL = BASE_URL + DISCOVER_TV_URL + API_KEY + LANGUAGE + PAGE + '2'
+    
+    const discover = async (url) => {
         try {
-            const resp = await axios.get(BASE_URL + DISCOVER_MOVIE_URL + API_KEY + LANGUAGE + PAGE + '2')
+           
+            const resp = await axios.get(url)
             console.log(resp.data);
             setData(resp.data.results)
 
@@ -59,8 +62,13 @@ export const CarouScroll = () => {
     const carouselRef = useRef()
 
     useEffect(() => {
-        discoverMovies()
-    }, []);
+        {props.mv && discover(MV_URL) }
+        {props.tv && discover(TV_URL) }
+        console.log(TV_URL);
+        return () => {
+            setData([])
+        }
+    }, [props.tv, props.mv]);
     // ! scrollbar-hide is a custom class in home.css
     return (
         <div className="container  h-[25vh] sm:h-[30vh] md:h-[38vh] lg:h-[45vh] xl:h-[55vh] ">
@@ -77,7 +85,7 @@ export const CarouScroll = () => {
                         {data && data.map((item, index) => {
                             return (
                         <div className="">
-                             <ItemCard grow key={item.id}  imgUrl={item.poster_path ? POSTER_BASE_URL + item.poster_path : 'https://htgindustry.com/wp-content/uploads/improve-video-play-rate.png'} title={item.original_title} alt={item.original_title} />
+                             <ItemCard grow mv={props.mv} tv={props.tv} key={item.id} mId={item.id}  imgUrl={item.poster_path ? POSTER_BASE_URL + item.poster_path : 'https://htgindustry.com/wp-content/uploads/improve-video-play-rate.png'} title={item.original_title} alt={item.original_title} />
                         </div>
                             )
                         })}

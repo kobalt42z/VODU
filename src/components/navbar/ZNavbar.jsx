@@ -57,12 +57,12 @@ export const ZNavbar = () => {
                         </Link>
                     </Navbar.Link>
                     <Navbar.Link
-                     active={location.pathname === '/moovies'}
+                     active={location.pathname === '/tvs'}
                     >
                     <Link to={
-                            '/moovies'
+                            '/tvs'
                         }>
-                        moovies
+                        TV Shows
                         </Link>
                     </Navbar.Link>
                     <Navbar.Link
@@ -70,23 +70,11 @@ export const ZNavbar = () => {
                     <Link to={
                             '/tv'
                         }>
-                        series
+                        genres
                         </Link>
                     </Navbar.Link>
-                    <Navbar.Link active={location.pathname === '/anime'}>
-                    <Link to={
-                            '/anime'
-                        }>
-                        anime
-                        </Link>
-                    </Navbar.Link>
-                    <Navbar.Link active={location.pathname === '/cartoon'}>
-                    <Link to={
-                            '/cartoon'
-                        }>
-                        cartoon
-                        </Link>
-                    </Navbar.Link>
+                    
+                
                 </Navbar.Collapse>
             </Navbar>
         </div>

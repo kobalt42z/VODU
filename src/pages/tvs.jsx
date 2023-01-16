@@ -5,12 +5,12 @@ import { HomeGrid } from '../components/MainGrid/HomeGrid'
 import { MainGrid } from '../components/MainGrid/MainGrid'
 import { Therm } from '../components/therm/therm'
 
-export const Movies = () => {
+export const Tvs = () => {
   return (<>
     <div className="container min-h-[90vh]">
-      
-      <CarouScroll mv />
-      <HomeGrid mv />
+
+      <CarouScroll tv />
+      <HomeGrid tv/>
     </div>
   </>)
 }

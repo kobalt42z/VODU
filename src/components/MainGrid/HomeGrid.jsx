@@ -1,28 +1,32 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { API_KEY, BASE_URL, DISCOVER_MOVIE_URL, IMG_BASE_URL, LANGUAGE, PAGE, POSTER_BASE_URL } from '../../constant/constant'
+import { API_KEY, BASE_URL, DISCOVER_MOVIE_URL, DISCOVER_TV_URL, IMG_BASE_URL, LANGUAGE, PAGE, POSTER_BASE_URL } from '../../constant/constant'
 import { ItemCard } from '../movieCard/itemCard'
 import { MovieCard } from '../movieCard/MovieCard'
 
 export const HomeGrid = (props) => {
     const [data, setData] = useState([]);
+    const MV_URL = BASE_URL + DISCOVER_MOVIE_URL + API_KEY + LANGUAGE + PAGE + '1'
+    const TV_URL = BASE_URL + DISCOVER_TV_URL + API_KEY + LANGUAGE + PAGE + '1'
+    
+    const discover = async (url) => {
+        try {
+           
+            const resp = await axios.get(url)
+            console.log(resp.data);
+            setData(resp.data.results)
 
-    const discoverMovies = async() => {
-        try{
-        const resp = await axios.get(BASE_URL+DISCOVER_MOVIE_URL+API_KEY+LANGUAGE+PAGE+'1')
-        console.log(resp.data);
-        setData(resp.data.results)
-
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
 
     }
     useEffect(() => {
-        discoverMovies()
+        {props.mv&&discover(MV_URL)}
+        {props.tv&&discover(TV_URL)}
         
-    }, [])
+    }, [props.tv,props.mv])
     return (<>
         <h2 className=' capitalize  text-2xl font-thin py-5'>uplowded last :</h2>
         <div className="grid w-[100%] justify-center
@@ -33,11 +37,10 @@ export const HomeGrid = (props) => {
 
 
             {data && data.map((item) => {
-                return <Link to={`/movie/${item.id}/seasons/`}>
-                    <div className=' w-[100%] flex justify-center '>
-                        <ItemCard key={item.id}  imgUrl={item.poster_path ? POSTER_BASE_URL + item.poster_path : 'https://htgindustry.com/wp-content/uploads/improve-video-play-rate.png'} title={item.original_title} alt={item.original_title} />
+                return <div className=' w-[100%] flex justify-center '>
+                        <ItemCard mv={props.mv} tv={props.tv} key={item.id} mId={item.id}  imgUrl={item.poster_path ? POSTER_BASE_URL + item.poster_path : 'https://htgindustry.com/wp-content/uploads/improve-video-play-rate.png'} title={item.original_title} alt={item.original_title} />
                     </div>
-                </Link>
+                
             })}
 
         </div>

@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './movieCard.css'
 
 export const ItemCard = (props) => {
     // const { imgUrl, title, alt } = props
     // const imgg = `${imgUrl}` 
-
+    const navigate = useNavigate()
 
     useEffect(() => {
       
@@ -29,7 +30,9 @@ export const ItemCard = (props) => {
         :
         ''
     }
-         `} >
+         `} 
+         onClick={()=>{{props.mv&& navigate(`/movie/${props.mId}`)}{props.tv&& navigate(`/tv/${props.mId}`)}}}  
+         >
 
             <div className=" rounded-md custom-shaddow h-[100%] w-[100%] opacity-0 max-md:opacity-100 hover:opacity-100 flex items-end px-5 py-5 " >
                
