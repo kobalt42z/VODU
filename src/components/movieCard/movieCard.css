@@ -5,9 +5,15 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.9402135854341737) 21%, rgba(0, 0, 0, 0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
 
-    transition-duration:1s ;
+    /* transition-duration:1s ; */
    
 }
 .bgbg{
-    background-size:cover ;
+
+     
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+    
+    
 }

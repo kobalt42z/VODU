@@ -24,7 +24,6 @@ export const EpisodeLayouts = (props) => {
     const ep_id = params.episode_id
     const tv_id = params.tv_id 
     const se_id = params.season_id
-    
 
 
     const bringEpisode = async (id) => {
@@ -40,6 +39,7 @@ export const EpisodeLayouts = (props) => {
     }
 
     useEffect(() => {
+        console.log(params);
         bringEpisode(ep_id)
         setStars(vote_average)
     }, [])
@@ -49,7 +49,7 @@ export const EpisodeLayouts = (props) => {
 
     return (<>
         {/* fetch content from props.itemUrl  */}
-        <div className='container  justify-center dark:text-white h-[85vh] md:h-[76vh] lg:h-[75vh] '>
+        <div className='container  justify-center dark:text-white h-[100vh] md:h-[76vh] lg:h-[75vh] '>
             <div className="brd mt-5 max-md:hidden ">
                 <Breadcrumb aria-label="Default breadcrumb example">
                     <Breadcrumb.Item
@@ -63,7 +63,7 @@ export const EpisodeLayouts = (props) => {
 
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        <Link to={`/tv/${tv_id}}`} > nameOfSeries </Link>
+                        <Link to={`/tv/${tv_id}}`} > {tv_id} </Link>
 
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
@@ -78,7 +78,7 @@ export const EpisodeLayouts = (props) => {
 
             <div className="topCol md:w-[100%] md:flex  justify-center py-4 ">
                 <div className="poster flex ">
-                    <img className='md:w-[500px]' src={still_path?POSTER_BASE_URL + still_path: 'https://htgindustry.com/wp-content/uploads/improve-video-play-rate.png'} alt="poster" />
+                    <img className='md:w-[500px] h-[300px]' src={still_path?POSTER_BASE_URL + still_path: 'https://htgindustry.com/wp-content/uploads/improve-video-play-rate.png'} alt="poster" />
 
                 </div>
 

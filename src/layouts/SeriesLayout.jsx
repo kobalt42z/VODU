@@ -1,5 +1,6 @@
+import { HomeIcon } from '@heroicons/react/24/outline';
 import axios from 'axios'
-import { Button, Rating, Tabs } from 'flowbite-react'
+import { Breadcrumb, Button, Rating, Tabs } from 'flowbite-react'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useNavigation, useParams } from 'react-router-dom'
 ;
@@ -17,9 +18,7 @@ import './backdrop.css'
 * replace the props with the fetched data
 * have fun :)
  */
-/*
-vote_average, vote_count, , , , ,  , , , , ,  , 
-*/
+
 
 export const SeriesLayout = (props) => {
     const [data, setData] = useState({})
@@ -66,6 +65,26 @@ export const SeriesLayout = (props) => {
 
     return (<>
         {/* fetch content from props.itemUrl  */}
+        
+           <div className="px-5 py-3">
+           <Breadcrumb aria-label="Default breadcrumb example">
+                    <Breadcrumb.Item
+
+                        icon={HomeIcon}
+                    >
+                        <Link to={'/home'} >Home</Link>
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item >
+                        <Link to={'/tv'} >Tv</Link>
+
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item>
+                        <Link to={`/tv/${tv_id}}`} > {name} </Link>
+
+                    </Breadcrumb.Item>
+
+                </Breadcrumb>
+           </div>
         <div className="Mbackdrop container bg-no-repeat"
             style={{ background: `url(${BACK_DROP_BASE_URL+backdrop_path})`}}>
 

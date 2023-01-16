@@ -10,6 +10,7 @@ export const POSTER_BASE_URL = 'https://image.tmdb.org/t/p/w500'
 export const BASE_URL = 'https://api.themoviedb.org/3/'
 export const TV_URL = 'https://api.themoviedb.org/3/tv/'
 export const MOVIE_URL = 'https://api.themoviedb.org/3/movie/'
+
 /*
 *________GENERAL KEYWORDS________
 */
@@ -42,3 +43,4 @@ export const DISCOVER_TV_URL = `discover/tv`
 // ? episode formula  TV_URL+SEASON+NUM+EPISODE+NUM+API_KEY+LANGUAGE+PAGE
 export const  SEASON = `/season/`
 export const  EPISODE = `/episode/`
+export const KEYWORDS = `keywords`

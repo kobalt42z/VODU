@@ -23,7 +23,8 @@ export const Browser = () => {
                         <Route index element={<SeriesLayout />} />
                         <Route path='/tv/:tv_id/seasons/' element={<Outlet />}>
                             <Route index element={<SeasonLayout />} />
-                            
+                            <Route path='/tv/:tv_id/seasons/:season_id' element={<SeasonLayout />} />
+
                             <Route path='/tv/:tv_id/seasons/:season_id/episode/:episode_id' element={<Outlet />} >
                                 <Route index element={<EpisodeLayouts />} />
                             </Route>

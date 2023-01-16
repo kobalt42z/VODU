@@ -1,5 +1,6 @@
+import { HomeIcon } from '@heroicons/react/24/outline'
 import axios from 'axios'
-import { Button, Dropdown, Rating, Tabs } from 'flowbite-react'
+import { Breadcrumb, Button, Dropdown, Rating, Tabs } from 'flowbite-react'
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { MainGrid } from '../components/MainGrid/MainGrid'
@@ -11,6 +12,7 @@ export const SeasonLayout = () => {
     const navigate = useNavigate()
     const [episodes, setEpisodes] = useState([])
     const [seasons, setSeasons] = useState([])
+    const [data , setData] = useState({})
     const [selectedSeason, setSelectedSeason] = useState(1)
     const params = useParams()
     const tv_id = params.tv_id
@@ -23,6 +25,7 @@ export const SeasonLayout = () => {
             if (resp.data.seasons) {
                 console.log(resp.data.seasons);
                 setSeasons(resp.data.seasons)
+                setData(resp.data)
             }else console.log('no data');
                 
             
@@ -42,8 +45,9 @@ export const SeasonLayout = () => {
             console.log(stringo);
             const resp = await axios.get(stringo)
             if (resp.data.episodes) {
-                console.log(resp.data.episodes);
+                console.log(resp.data);
                 setEpisodes(resp.data.episodes)
+             
 
             } else console.log('no episodes');
             console.log(resp)
@@ -53,26 +57,25 @@ export const SeasonLayout = () => {
     }
 
     useEffect(() => {
-      
+        params.season_id ? setSelectedSeason(params.season_id)  : setSelectedSeason(1)
+
+        console.log(params.season_id);
+        bringEpisodes(selectedSeason)
+
         console.log(location);
        
-        if (!location.state._seasons) {
-            bringTvInfo(tv_id)
-        }else{
-            setSeasons(location.state._seasons)
-        }
+      
+        location.state?._seasons ? setSeasons(location.state._seasons) : bringTvInfo(tv_id)
 
 
+    }, [params.season_id,selectedSeason])
 
-    }, [])
+    
 
-    // seasons[] is an array of objects
 
-    // const { poster_path, name, original_name, genres, episodes, sesons } = data
-    // ! geners[] {id,name} 
-    // ! episodes[] 
-    return (<div className='container lg:min-h-[80vh]'>
+    return (<div className='container min-h-[80vh] pt-5'>
         <Dropdown
+        className='overflow-y-scroll h-[30vh]'
             label="Dropdown right start"
             placement="right-start"
         >
@@ -81,8 +84,9 @@ export const SeasonLayout = () => {
                 seasons.map((item, index) => {
                     return (
                         <Dropdown.Item key={index} onClick={() => {
-                            bringEpisodes(item.season_number)
-                            selectedSeason(item.season_number)
+                            navigate(`/tv/${tv_id}/seasons/${item.season_number}`)
+                            
+                            
                         }
                         }>
 
@@ -95,7 +99,30 @@ export const SeasonLayout = () => {
 
 
         </Dropdown>
-        {episodes[1] ? <MainGrid episodes={episodes} season={selectedSeason} />  :
+
+        <div className="px-5 py-3">
+        <Breadcrumb aria-label="Default breadcrumb example">
+                    <Breadcrumb.Item
+
+                        icon={HomeIcon}
+                    >
+                        <Link to={'/home'} >Home</Link>
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item >
+                        <Link to={'/tv'} >Tv</Link>
+
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item>
+                        <Link to={`/tv/${tv_id}}`} > {data.name} </Link>
+
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item>
+                        <Link to={`/tv/${tv_id}}/seasons/`} >Season {params.season_id}</Link>
+
+                    </Breadcrumb.Item>
+                </Breadcrumb>
+        </div>
+        {episodes[1] ? <MainGrid episodes={episodes} season={selectedSeason} tvName ={data.name} />  :
 
             <div>there is no episode yet</div>
         }
