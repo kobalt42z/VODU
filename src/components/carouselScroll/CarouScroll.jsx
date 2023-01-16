@@ -71,9 +71,9 @@ export const CarouScroll = (props) => {
     }, [props.tv, props.mv]);
     // ! scrollbar-hide is a custom class in home.css
     return (
-        <div className="container  h-[25vh] sm:h-[30vh] md:h-[38vh] lg:h-[45vh] xl:h-[55vh] ">
+        <div className="container mb-5 h-[25vh] sm:h-[30vh] md:h-[38vh] lg:h-[45vh] xl:h-[55vh] ">
            
-            <div className="flex justify-around  ">
+            <div className="flex justify-around   ">
                 <div className='flex flex-col justify-center '>
                     <button onClick={() => scrollPrev()} className='hidden md:block'  ><ChevronLeftIcon className="h-12 mr-5 text-gray-500" /></button>
                 </div>

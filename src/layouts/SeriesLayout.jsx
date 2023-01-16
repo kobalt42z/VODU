@@ -208,7 +208,7 @@ export const SeriesLayout = (props) => {
                         <hr />
                         <p className='flex justify-start '><span className='font-bold pr-5 '>Status :</span> {status}</p>
                         <hr />
-                        <p className='flex justify-start'><span className='font-bold pr-5 '>HomePage :</span> <a className='text-blue-600' href={homepage? homepage : 'N/A'}>{homepage? homepage : 'N/A'} </a></p>
+                        <p className='flex justify-start'><span className='font-bold pr-5 '>HomePage :</span> <a className='text-blue-600 truncate ' href={homepage? homepage : 'N/A'}>{homepage? homepage : 'N/A'} </a></p>
                     </div>
                 </div>
             </div>
