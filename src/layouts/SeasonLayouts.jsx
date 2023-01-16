@@ -102,14 +102,14 @@ export const SeasonLayout = () => {
 
         <div className="px-5 py-3">
         <Breadcrumb aria-label="Default breadcrumb example">
-                    <Breadcrumb.Item
+                    {/* <Breadcrumb.Item
 
                         icon={HomeIcon}
                     >
                         <Link to={'/home'} >Home</Link>
-                    </Breadcrumb.Item>
+                    </Breadcrumb.Item> */}
                     <Breadcrumb.Item >
-                        <Link to={'/tv'} >Tv</Link>
+                        <Link to={'/tvs'} >Tv & show</Link>
 
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>

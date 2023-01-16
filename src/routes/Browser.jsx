@@ -5,6 +5,7 @@ import { MovieLayout } from '../layouts/MovieLayout'
 import { SeasonLayout } from '../layouts/SeasonLayouts'
 import { SeriesLayout } from '../layouts/SeriesLayout'
 import { SharedLayouts } from '../layouts/SharedLayouts'
+import ForOfor from '../pages/forofor'
 import { Movies } from '../pages/Movies'
 import { Results } from '../pages/results'
 import { Tvs } from '../pages/tvs'
@@ -38,6 +39,7 @@ export const Browser = () => {
                     </Route>
 
                 </Route>
+                <Route path='*' element={<ForOfor/>} />
             </Routes>
         </BrowserRouter>
     )
