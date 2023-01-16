@@ -1,30 +1,30 @@
 import React, { useEffect } from 'react'
 import './movieCard.css'
 
-export const MovieCard = (props) => {
+export const ItemCard = (props) => {
     // const { imgUrl, title, alt } = props
     // const imgg = `${imgUrl}` 
 
 
     useEffect(() => {
-       console.log(props.imgUrl);
+      
     }, [])
     return (
-        <div style={{background: `url(${props.imgUrl })`,backgroundSize:'strech' , backgroundPosition:'center' ,backgroundRepeat:'no-repeat'}} className={`  center rounded-md 
+        <div style={{background: `url(${props.imgUrl })`,backgroundSize:'cover' , backgroundPosition:'center' ,backgroundRepeat:'no-repeat'}} className={`  center rounded-md 
          
-        drop-shadow-lg
-        h-[12vh] w-[90%]
-        md:h-[16vh] md:w-[22vh] 
-        lg:h-[22vh] lg:w-[30vh] 
-        xl:h-[26vh] xl:w-[38vh] 
+        drop-shadow-lg 
+        w-[14vh] h-[20vh]
+        md:w-[18vh] md:h-[26vh] 
+        lg:w-[22vh] lg:h-[30vh] 
+        xl:w-[25vh] xl:h-[35vh] 
 
         ${props.grow?`
 
        ${props.absolute && "hover:absolute"} 
-        
-        md:hover:w-[24vh] md:hover:h-[18vh]
-        lg:hover:w-[34vh] lg:hover:h-[24vh]
-        xl:hover:w-[40vh] xl:hover:h-[28vh]
+        transition-all duration-1000 ease-in-out
+        md:hover:h-[24vh] md:hover:w-[18vh]
+        lg:hover:h-[34vh] lg:hover:w-[24vh]
+        xl:hover:h-[37vh] xl:hover:w-[28vh]
         `
         :
         ''

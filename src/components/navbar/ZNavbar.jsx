@@ -48,12 +48,12 @@ export const ZNavbar = () => {
                     <Navbar.Link
                     
                        
-                        active={location.pathname === '/home'}
+                        active={location.pathname === '/movies'}
                     >
                         <Link to={
-                            '/home'
+                            '/movies'
                         }>
-                        Home
+                        Movies
                         </Link>
                     </Navbar.Link>
                     <Navbar.Link

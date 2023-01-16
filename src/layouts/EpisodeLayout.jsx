@@ -76,7 +76,7 @@ export const EpisodeLayouts = (props) => {
                 </Breadcrumb>
             </div>
 
-            <div className="topCol md:w-[100%] md:flex  justify-center py-4 ">
+            <div className="topCol md:w-[100%] md:flex  justify-center md:py-4 ">
                 <div className="poster flex ">
                     <img className='md:w-[500px] h-[300px]' src={still_path?POSTER_BASE_URL + still_path: 'https://htgindustry.com/wp-content/uploads/improve-video-play-rate.png'} alt="poster" />
 

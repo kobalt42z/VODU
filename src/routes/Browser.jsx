@@ -5,7 +5,7 @@ import { MoovieLayout } from '../layouts/MoovieLayout'
 import { SeasonLayout } from '../layouts/SeasonLayouts'
 import { SeriesLayout } from '../layouts/SeriesLayout'
 import { SharedLayouts } from '../layouts/SharedLayouts'
-import { Home } from '../pages/home'
+import { Movies } from '../pages/Movies'
 
 export const Browser = () => {
 
@@ -15,7 +15,7 @@ export const Browser = () => {
 
                 <Route path="/" element={<SharedLayouts />}>
                     <Route index element={<Navigate to={'/home'} />} />
-                    <Route path='/home' element={<Home />} />
+                    <Route path='/movies' element={<Movies />} />
                     <Route path='/moovies' element={<MoovieLayout />} />
 
 

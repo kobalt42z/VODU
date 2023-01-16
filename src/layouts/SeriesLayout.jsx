@@ -9,7 +9,7 @@ import { API_KEY, BACK_DROP_BASE_URL, BASE_URL, IMG_BASE_URL, LANGUAGE, POSTER_B
 import './backdrop.css'
 
 /*
-* refactor the serie layout and 
+* 
 * add a button to navigate to the season & episodes page 
 *      the navigate shuld pass a state withe seasons [] otherwise the page
 *      will go back to the series page (this)
