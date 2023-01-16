@@ -28,8 +28,8 @@ export const HomeGrid = (props) => {
         
     }, [props.tv,props.mv])
     return (<>
-        <h2 className=' capitalize  text-2xl font-thin py-5'>uplowded last :</h2>
-        <div className="grid w-[100%] justify-center
+       
+        <div className="grid w-[90%] justify-center
         grid-cols-2 
         md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5
          

@@ -2,14 +2,16 @@ import { Label, Modal, TextInput } from 'flowbite-react'
 import React from 'react'
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 
 export const Search = (props) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-
+    const navigate = useNavigate();
 
     const doSearch = (data) => {
         console.log(data.search);
+        navigate('results/' + data.search)
         props.closeModal()
     }
 

@@ -6,6 +6,7 @@ import { SeasonLayout } from '../layouts/SeasonLayouts'
 import { SeriesLayout } from '../layouts/SeriesLayout'
 import { SharedLayouts } from '../layouts/SharedLayouts'
 import { Movies } from '../pages/Movies'
+import { Results } from '../pages/results'
 import { Tvs } from '../pages/tvs'
 
 export const Browser = () => {
@@ -18,7 +19,7 @@ export const Browser = () => {
                     <Route index element={<Navigate to={'/movies'} />} />
                     <Route path='/movies' element={<Movies />} />
                     <Route path='/tvs' element={<Tvs/>} />
-
+                    <Route path='/results/:search' element={< Results/>} />
                     <Route path='/movie/:movie_Id' element={<Outlet/>}>
                         <Route index element={<MovieLayout />} />
                     </Route>
