@@ -9,7 +9,7 @@ export const ResGrid = (props) => {
 
     return (<>
       
-        <div className="grid w-[70%] md:w-[90%] lg:w-[100%] xl:w-[90%] justify-center
+        <div className="grid w-[90%] md:w-[90%] lg:w-[100%] xl:w-[90%] justify-center
         grid-cols-2 
         md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5
          

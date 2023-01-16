@@ -14,7 +14,7 @@ export const ItemCard = (props) => {
         <div style={{background: `url(${props.imgUrl })`,backgroundSize:'cover' , backgroundPosition:'center' ,backgroundRepeat:'no-repeat'}} className={`  center rounded-md 
          
         drop-shadow-lg 
-        w-[14vh] h-[20vh]
+        w-[18vh] h-[28vh]
         md:w-[18vh] md:h-[26vh] 
         lg:w-[22vh] lg:h-[30vh] 
         xl:w-[25vh] xl:h-[35vh] 
