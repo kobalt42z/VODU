@@ -41,6 +41,9 @@ export const SeriesLayout = (props) => {
             if (resp.data) {
                 console.log(resp.data);
                 setData(resp.data)
+                if(typeof vote_average !== 'undefined'){
+                    setImbd(resp.data.vote_average)
+                }
             }else console.log('no data');
                 
             

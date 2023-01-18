@@ -31,6 +31,9 @@ export const EpisodeLayouts = (props) => {
             const resp = await axios.get(TV_URL + tv_id + SEASON + se_id + EPISODE + id + API_KEY + LANGUAGE)
             if (resp.data) {
                 setEpisode(resp.data)
+                if (typeof resp.data.vote_average === 'number') {
+                    setStars(resp.data.vote_average)
+                }
             } else console.log('no episodes');
             console.log(resp)
         } catch (err) {
@@ -41,7 +44,7 @@ export const EpisodeLayouts = (props) => {
     useEffect(() => {
         console.log(params);
         bringEpisode(ep_id)
-        setStars(vote_average)
+        // setStars(vote_average)
     }, [])
 
 

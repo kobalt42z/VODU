@@ -31,7 +31,7 @@ export const MovieLayout = (props) => {
 
     const params = useParams()
     const movie_Id = params.movie_Id
-
+    const [stars, setStars] = useState(6);
     const bringMovieInfo = async (id) => {
 
         try {
@@ -41,6 +41,11 @@ export const MovieLayout = (props) => {
             if (resp.data) {
                 console.log(resp.data);
                 setData(resp.data)
+                if (typeof vote_average !== 'undefined') {
+                    setStars(resp.data.vote_average)
+                }
+                
+                
             } else console.log('no data');
 
 
@@ -52,7 +57,7 @@ export const MovieLayout = (props) => {
 
     }
 
-    const [stars, setImbd] = useState(6);
+    
 
 
     useEffect(() => {

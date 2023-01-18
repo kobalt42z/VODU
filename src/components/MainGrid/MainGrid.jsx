@@ -7,7 +7,7 @@ export const MainGrid = (props) => {
     
 
     return (<>
-        <h2 className=' capitalize  text-2xl py-5'>uplowded last :</h2>
+        <h2 className=' capitalize  text-2xl py-5'>uploawded last :</h2>
         <div className="grid w-[100%] justify-center
         grid-cols-1 
         md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4
