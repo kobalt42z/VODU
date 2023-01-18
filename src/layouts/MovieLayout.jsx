@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Breadcrumb, Button, Rating, Tabs } from 'flowbite-react'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useNavigation, useParams } from 'react-router-dom'
-;
+    ;
 
 import { API_KEY, BACK_DROP_BASE_URL, BASE_URL, IMG_BASE_URL, LANGUAGE, MOVIE_URL, POSTER_BASE_URL, TV_URL } from '../constant/constant'
 import './backdrop.css'
@@ -23,32 +23,32 @@ import './backdrop.css'
 export const MovieLayout = (props) => {
     const [data, setData] = useState({})
     const navigate = useNavigate()
-    
-    
-   
-    
-    const {backdrop_path,release_date,genres ,original_title,homepage,revenue,runtime,original_language,overview,popularity,poster_path,status,production_countries,vote_average,vote_count,production_companies} = data || {}
+
+
+
+
+    const { backdrop_path, release_date, genres, original_title, homepage, revenue, runtime, original_language, overview, popularity, poster_path, status, production_countries, vote_average, vote_count, production_companies } = data || {}
 
     const params = useParams()
     const movie_Id = params.movie_Id
-  
+
     const bringMovieInfo = async (id) => {
-        
-        try{
+
+        try {
 
             const resp = await axios.get(MOVIE_URL + id + API_KEY + LANGUAGE)
-            
+
             if (resp.data) {
                 console.log(resp.data);
                 setData(resp.data)
-            }else console.log('no data');
-                
-            
-        }catch(err){
+            } else console.log('no data');
+
+
+        } catch (err) {
             console.log(err)
         }
-       
-        
+
+
 
     }
 
@@ -57,36 +57,36 @@ export const MovieLayout = (props) => {
 
     useEffect(() => {
         bringMovieInfo(movie_Id)
-    
-       
+
+
     }, []);
 
 
 
     return (<>
         {/* fetch content from props.itemUrl  */}
-        
-           <div className="px-5 py-3">
-           <Breadcrumb aria-label="Default breadcrumb example">
-                    {/* <Breadcrumb.Item
+
+        <div className="px-5 py-3">
+            <Breadcrumb aria-label="Default breadcrumb example">
+                {/* <Breadcrumb.Item
 
                         icon={HomeIcon}
                     >
                         <Link to={'/home'} >Home</Link>
                     </Breadcrumb.Item> */}
-                    <Breadcrumb.Item >
-                        <Link to={'/movies'} >Movies</Link>
+                <Breadcrumb.Item >
+                    <Link to={'/movies'} >Movies</Link>
 
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item>
-                        <Link to={`/tv/${movie_Id}}`} > {original_title} </Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>
+                    <Link to={`/tv/${movie_Id}}`} > {original_title} </Link>
 
-                    </Breadcrumb.Item>
+                </Breadcrumb.Item>
 
-                </Breadcrumb>
-           </div>
+            </Breadcrumb>
+        </div>
         <div className="Mbackdrop container bg-no-repeat"
-            style={{ background: `url(${BACK_DROP_BASE_URL+backdrop_path})`}}>
+            style={{ background: `url(${BACK_DROP_BASE_URL + backdrop_path})` }}>
 
 
             <div className={`container md:flex  justify-center dark:text-white  bg-opacity-50 backdrop-filter backdrop-blur-sm  rounded-lg  md:p-5 `}>
@@ -100,8 +100,8 @@ export const MovieLayout = (props) => {
                         </Link>
                     </div>
                     <div className="tbtns flex justify-end w-[100%] pt-2">
-                        <button className="w-[50%] lg:w-[35%] h-[5vh] hover:bg-slate-200 border font-semibold"> <i class="fa-brands fa-google-play"></i> Watch</button>
-                        <button className="w-[50%] lg:w-[35%] h-[5vh] hover:bg-slate-200 border font-semibold"><i class="fa-brands fa-amazon"></i> Watch</button>
+                        <button className="w-[50%] lg:w-[35%] h-[5vh] hover:bg-slate-200 border font-semibold"> <i className="fa-brands fa-google-play"></i> Watch</button>
+                        <button className="w-[50%] lg:w-[35%] h-[5vh] hover:bg-slate-200 border font-semibold"><i className="fa-brands fa-amazon"></i> Watch</button>
                     </div>
                     <div className="flex justify-end">
                         <div className="sinfo w-[100%] lg:w-[70%]   mt-5 h-[20vh] flex justify- items-center
@@ -127,13 +127,13 @@ export const MovieLayout = (props) => {
                         </div>
                         <div className="gener pb-5 flex justify-between pt-3">
                             <p className=''>
-                                <span className='font-bold '> Gener:</span> {genres && genres.map((item)=>{
+                                <span className='font-bold '> Gener:</span> {genres && genres.map((item) => {
                                     return <span className='pl-2'>{item.name},</span>
-                                })}  <br /> <span className='font-bold'> contry:</span> {production_countries&& production_countries[0].name}  <span className='font-bold'> <br /> Langage: </span>  {original_language} <br />
+                                })}  <br /> <span className='font-bold'> contry:</span> {production_countries && production_countries[0].name}  <span className='font-bold'> <br /> Langage: </span>  {original_language} <br />
                                 <span className='font-bold'> Release Date:</span> {release_date}
                             </p>
-                            
-                           
+
+
                         </div>
                         <div className="rating  flex w-[100%] pb-5" >
 
@@ -150,7 +150,7 @@ export const MovieLayout = (props) => {
                         </div>
                     </div>
                     <div className="theoutlet  dark:border-0  bg-white  dark:bg-gray-800">
-                        
+
                         <div className="synopsis w-[100%]  p-5  md:p-10 drop-shadow-md space-y-1">
                             <h1 className='font-semibold text-2xl '>Overview </h1>
                             <hr />
@@ -161,13 +161,13 @@ export const MovieLayout = (props) => {
                     <div className="caracteristhics  p-10   w-[100%] shadow-lg flex-col space-y-4  bg-white dark:bg-gray-800 rounded-b-lg">
                         <h1 className='text-lg font-bold'> Caracteristhics </h1>
                         <hr />
-                        <p className='flex justify-start'><span className='font-bold pr-5 '>Production companie:</span> {production_companies&&production_companies[0].original_title}</p>
+                        <p className='flex justify-start'><span className='font-bold pr-5 '>Production companie:</span> {typeof production_companies !== 'undefined' && production_companies.length > 0 && production_companies[0].original_title}</p>
                         <hr />
-                        <p className='flex justify-start '><span className='font-bold pr-5'>PC origin:</span> <span>{production_companies&&production_companies[0].production_countries}</span></p>
+                        <p className='flex justify-start '><span className='font-bold pr-5'>PC origin:</span> <span>{typeof production_companies !== 'undefined' && production_companies.length > 0 && production_companies[0].production_countries}</span></p>
                         <hr />
                         <p className='flex justify-start '><span className='font-bold pr-5 '>Status :</span> {status}</p>
                         <hr />
-                        <p className='flex justify-start'><span className='font-bold pr-5 '>HomePage :</span> <a className='text-blue-600 truncate ' href={homepage? homepage : 'N/A'}>{homepage? homepage : 'N/A'} </a></p>
+                        <p className='flex justify-start'><span className='font-bold pr-5 '>HomePage :</span> <a className='text-blue-600 truncate ' href={homepage ? homepage : 'N/A'}>{homepage ? homepage : 'N/A'} </a></p>
                     </div>
                 </div>
             </div>

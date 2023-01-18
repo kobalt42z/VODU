@@ -100,8 +100,8 @@ export const SeriesLayout = (props) => {
                         </Link>
                     </div>
                     <div className="tbtns flex justify-end w-[100%] pt-2">
-                        <button className="w-[50%] lg:w-[35%] h-[5vh] hover:bg-slate-200 border font-semibold"> <i class="fa-brands fa-google-play"></i> Watch</button>
-                        <button className="w-[50%] lg:w-[35%] h-[5vh] hover:bg-slate-200 border font-semibold"><i class="fa-brands fa-amazon"></i> Watch</button>
+                        <button className="w-[50%] lg:w-[35%] h-[5vh] hover:bg-slate-200 border font-semibold"> <i claseName="fa-brands fa-google-play"></i> Watch</button>
+                        <button className="w-[50%] lg:w-[35%] h-[5vh] hover:bg-slate-200 border font-semibold"><i claseName="fa-brands fa-amazon"></i> Watch</button>
                     </div>
                     <div className="flex justify-end">
                         <div className="sinfo w-[100%] lg:w-[70%]   mt-5 h-[20vh] flex justify- items-center
@@ -132,7 +132,7 @@ export const SeriesLayout = (props) => {
                             </p>
                             
                                 <Button onClick={()=>navigate(`/tv/${tv_id}/seasons/`,{state:{seasons:seasons}
-                                })} className=''>Episodes <i class="fa-solid fa-arrow-right ml-5"></i></Button>
+                                })} className=''>Episodes <i claseName="fa-solid fa-arrow-right ml-5"></i></Button>
                            
                         </div>
                         <div className="rating  flex w-[100%] pb-5" >

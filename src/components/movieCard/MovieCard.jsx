@@ -10,11 +10,11 @@ export const MovieCard = (props) => {
        console.log(props.imgUrl);
     }, [])
     return (
-        <div style={{background: `url(${props.imgUrl })`,backgroundSize:'strech' , backgroundPosition:'center' ,backgroundRepeat:'no-repeat'}} className={`  center rounded-md 
+        <div style={{background: `url(${props.imgUrl })`,backgroundSize:'cover' , backgroundPosition:'center' ,backgroundRepeat:'no-repeat'}} className={`  center rounded-md 
          
         drop-shadow-lg
-        h-[12vh] w-[90%]
-        md:h-[16vh] md:w-[22vh] 
+        h-[24vh] w-[90%]
+        md:h-[18vh] md:w-[28vh] 
         lg:h-[22vh] lg:w-[30vh] 
         xl:h-[26vh] xl:w-[38vh] 
 
